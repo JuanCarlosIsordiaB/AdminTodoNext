@@ -1,14 +1,27 @@
 "use client";
 import { FormEvent, useState } from "react";
 import { IoTrashOutline } from "react-icons/io5";
+import { createTodo } from "../helpers/todos";
+import * as todosApi from '@/todos/helpers/todos';
+import { useRouter } from "next/navigation";
+
 export const NewTodo = () => {
+
+  const router = useRouter();
   const [description, setDescription] = useState("");
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (description.trim().length === 0) return;
 
-    console.log('form su');
+    todosApi.createTodo(description);
+    setDescription("");
+    router.refresh();
   };
+
+  const deletedCompleted = async() => {
+    await todosApi.deleteCompleted();
+    router.refresh();
+  }
 
   return (
     <form className="flex w-full" onSubmit={onSubmit}>
@@ -30,12 +43,12 @@ export const NewTodo = () => {
       <span className="flex flex-1"></span>
 
       <button
-        //TODO: onClick={ () => deleteCompleted() }
+       onClick={ deletedCompleted}
         type="button"
         className="flex items-center justify-center rounded ml-2 bg-red-400 p-2 text-white hover:bg-red-700 transition-all"
       >
         <IoTrashOutline />
-        Delete
+        Delete Task Completed
       </button>
     </form>
   );
