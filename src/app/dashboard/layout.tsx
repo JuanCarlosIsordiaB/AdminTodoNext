@@ -1,16 +1,4 @@
-// Admin Dashboard https://tailwindcomponents.com/component/dashboard-12
-import React from "react";
 import { Sidebar, TopMenu, WidgetItem } from "@/components";
-
-import {
-  CiBellOn,
-  CiBookmarkCheck,
-  CiChat1,
-  CiLogout,
-  CiMenuBurger,
-  CiSearch,
-} from "react-icons/ci";
-import DashboardPage from "./page";
 
 export default function DashboardLayout({
   children,
