@@ -19,7 +19,7 @@ export const SidebarItem = ({ title, path, icon }: Props) => {
     <Link
       href={path}
       className={` px-4 py-3 flex items-center space-x-4 rounded-md bg-white hover:bg-blue-500 hover:text-white ${
-        path === pathName ? "text-white bg-blue-500" : ""
+        path === pathName ? " bg-blue-500 " : ""
       }
         `}
     >
