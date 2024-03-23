@@ -1,3 +1,4 @@
+'use client'
 import { Todo } from "@prisma/client";
 import { startTransition, useOptimistic } from "react";
 import styles from "./TodoItem.module.css";

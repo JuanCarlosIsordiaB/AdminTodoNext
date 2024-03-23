@@ -15,6 +15,7 @@ interface Props {
 // SidebarItem component
 export const SidebarItem = ({ title, path, icon }: Props) => {
   const pathName = usePathname();
+  
   return (
     <Link
       href={path}
